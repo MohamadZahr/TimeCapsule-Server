@@ -20,6 +20,7 @@ return new class extends Migration
             $table->boolean('surprise')->default(0);
             $table->string('image_path')->nullable();
             $table->string('audio_path')->nullable();
+            $table->string('color');
             $table->dateTime('revealed_at');
             $table->timestamps();
         });
