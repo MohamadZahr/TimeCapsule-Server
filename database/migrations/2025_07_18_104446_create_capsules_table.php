@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('capsules', function (Blueprint $table) {
             $table->id();
-            $table->integer ('user_id')->references('id')->on('users')->onDelete('cascade')  ;
+            $table->integer ('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->integer('location_id')->references('id')->on('locations')->onDelete('cascade');
             $table->string('title');
             $table->text('message');
             $table->boolean('private')->default(0);
