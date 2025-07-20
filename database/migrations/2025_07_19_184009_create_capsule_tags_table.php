@@ -12,6 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('capsule_tags', function (Blueprint $table) {
+            $table->id();
             $table->Integer('capsule_id')->references('id')->on('capsules')->onDelete('cascade');
             $table->Integer('tag_id')->references('id')->on('tags')->onDelete('cascade');
         });
