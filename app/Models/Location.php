@@ -14,8 +14,8 @@ class Location extends Model
         'longitude', 'latitude', 'city', 'country', 'address'
     ];
 
-    function capsules()
+    function capsule()
     {
-        return $this->hasMany(Capsule::class);
+        return $this->belongsTo(Capsule::class);
     }
 }
