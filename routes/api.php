@@ -11,7 +11,7 @@ Route::group(["prefix" => "v0.1"], function () {
 
         //AUTHENTICATED APIs
         Route::post("/create_capsule", [CapsuleController::class, "create"]);
-        Route::get("/get_all_tags", [TagController::class, "getAll"]);
+        Route::get("/tags", [TagController::class, "getAll"]);
         Route::get("/private/revealed", [CapsuleController::class, "getPrivateRevealed"]);
         Route::get("/private/upcoming", [CapsuleController::class, "getPrivateUpcoming"]);
         Route::get("/public/revealed", [CapsuleController::class, "getPublicRevealed"]);

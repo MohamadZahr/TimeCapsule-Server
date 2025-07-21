@@ -62,7 +62,7 @@ class CapsuleController extends Controller
 
     public function getPublicRevealed()
     {
-        $capsule = Capsule::with(['tags', 'location'])
+        $capsule = Capsule::with(['tags', 'location', 'user'])
             ->where('private', 0)
             ->where('revealed_at', '<=', now())
             ->where('surprise', 0)
@@ -72,7 +72,7 @@ class CapsuleController extends Controller
 
     public function getPublicUpcoming()
     {
-        $capsule = Capsule::with(['tags', 'location'])
+        $capsule = Capsule::with(['tags', 'location', 'user'])
             ->where('private', 0)
             ->where('revealed_at', '>', now())
             ->where('surprise', 0)
@@ -83,7 +83,7 @@ class CapsuleController extends Controller
     public function getPrivateRevealed()
     {
         $id = Auth::id();
-        $capsule = Capsule::with(['tags', 'location'])
+        $capsule = Capsule::with(['tags', 'location', 'user'])
             ->where('revealed_at', '<=', now())
             ->where('surprise', 0)
             ->where('user_id', $id)
@@ -94,7 +94,7 @@ class CapsuleController extends Controller
     public function getPrivateUpcoming()
     {
         $id = Auth::id();
-        $capsule = Capsule::with(['tags', 'location'])
+        $capsule = Capsule::with(['tags', 'location', 'user'])
             ->where('revealed_at', '>', now())
             ->where('surprise', 0)
             ->where('user_id', $id)
